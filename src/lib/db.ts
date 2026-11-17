@@ -140,6 +140,13 @@ export interface PejabatOrganisasi {
   keterangan: string;
 }
 
+export interface AdminUser {
+  username: string;
+  password: string;
+  namaPengelola?: string;
+  lastUpdated?: string;
+}
+
 export interface DatabaseSchema {
   siteConfig: {
     namaProdi: string;
@@ -191,6 +198,7 @@ export interface DatabaseSchema {
   daftarMitra: MitraKerjasama[];
   strukturOrganisasi: PejabatOrganisasi[];
   daftarVideo?: VideoKegiatan[];
+  adminUser?: AdminUser;
 }
 
 export function readDatabase(): DatabaseSchema {
@@ -205,6 +213,14 @@ export function readDatabase(): DatabaseSchema {
     if (!parsed.daftarMitra) parsed.daftarMitra = [];
     if (!parsed.strukturOrganisasi) parsed.strukturOrganisasi = [];
     if (!parsed.daftarVideo) parsed.daftarVideo = [];
+    if (!parsed.adminUser) {
+      parsed.adminUser = {
+        username: 'admin',
+        password: 'unimor2026',
+        namaPengelola: 'Administrator Prodi TI UNIMOR',
+        lastUpdated: '2026-11-17'
+      };
+    }
     return parsed;
   } catch (error) {
     console.error('Error reading database file:', error);

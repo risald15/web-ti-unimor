@@ -2802,5 +2802,11 @@
       "dosenNama": "Budiman Baso, S.Kom., M.Kom.",
       "featured": false
     }
-  ]
+  ],
+  "adminUser": {
+    "username": "admin",
+    "password": "unimor2026",
+    "namaPengelola": "Administrator Prodi TI UNIMOR",
+    "lastUpdated": "2026-11-17"
+  }
 }

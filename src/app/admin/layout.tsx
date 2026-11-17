@@ -18,7 +18,8 @@ import {
   FileText,
   Monitor,
   FolderDown,
-  Video
+  Video,
+  KeyRound
 } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -51,6 +52,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Fasilitas & Lab Komputer', href: '/admin/fasilitas', icon: Monitor },
     { label: 'Dokumen & Unduhan SOP', href: '/admin/dokumen', icon: FolderDown },
     { label: 'Profil, VMTS & Tata Kelola', href: '/admin/profil', icon: Settings },
+    { label: 'Pengaturan & Ubah Password', href: '/admin/pengaturan', icon: KeyRound },
   ];
 
   return (
