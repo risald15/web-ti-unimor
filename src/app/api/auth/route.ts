@@ -4,8 +4,10 @@ export async function POST(request: Request) {
   try {
     const { username, password } = await request.json();
 
-    // Default kredensial admin prodi TI UNIMOR (bisa diubah nanti lewat environment atau dashboard)
-    if (username === 'admin' && (password === 'unimor2026' || password === 'admin123')) {
+    const validUsername = process.env.ADMIN_USERNAME || 'admin';
+    const validPassword = process.env.ADMIN_PASSWORD || 'unimor2026';
+
+    if (username === validUsername && (password === validPassword || password === 'admin123')) {
       const response = NextResponse.json({ success: true, message: 'Login berhasil' });
       // Set simple auth cookie
       response.cookies.set('admin_session', 'authenticated_ti_unimor', {
